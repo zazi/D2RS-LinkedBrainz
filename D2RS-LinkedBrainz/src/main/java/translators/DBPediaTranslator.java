@@ -6,30 +6,31 @@ import java.lang.String;
 import translators.util.Utils;
 
 /**
- * 
+ * @author kurtjx
  * @author zazi
  * 
  */
-public class WikipediaTranslator implements Translator
+public class DBPediaTranslator implements Translator
 {
 
-	public WikipediaTranslator()
+	public DBPediaTranslator()
 	{
 
 	}
 
 	public String toDBValue(String rdfValue)
 	{
- 		// should already be formatted 
-		return rdfValue;
+		return rdfValue.replaceFirst("http://dbpedia.org/resource/",
+				"http://wikipedia.org/wiki/");
 	}
 
 	public String toRDFValue(String dbValue)
 	{
 		if (Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/") != null)
 		{
-			// clean up the base URI
-			return Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/");
+			return Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/")
+					.replaceFirst("http://wikipedia.org/wiki/",
+							"http://dbpedia.org/resource/");
 		}
 		// URI does not belong to this information service
 		else

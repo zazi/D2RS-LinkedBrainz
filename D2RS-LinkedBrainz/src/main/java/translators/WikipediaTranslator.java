@@ -1,40 +1,18 @@
 package translators;
 
-import de.fuberlin.wiwiss.d2rq.values.Translator;
-import java.lang.String;
-
-import translators.util.Utils;
+import translators.util.BaseUriCleanUpTranslator;
 
 /**
  * 
  * @author zazi
  * 
  */
-public class WikipediaTranslator implements Translator
+public class WikipediaTranslator extends BaseUriCleanUpTranslator
 {
-
+	public static final String ORIGINAL_BASE_URI = "http://wikipedia.org/wiki/";
+	
 	public WikipediaTranslator()
 	{
-
-	}
-
-	public String toDBValue(String rdfValue)
-	{
- 		// should already be formatted 
-		return rdfValue;
-	}
-
-	public String toRDFValue(String dbValue)
-	{
-		if (Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/") != null)
-		{
-			// clean up the base URI
-			return Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/");
-		}
-		// URI does not belong to this information service
-		else
-		{
-			return null;
-		}
+		super(ORIGINAL_BASE_URI);
 	}
 }

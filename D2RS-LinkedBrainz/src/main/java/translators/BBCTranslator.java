@@ -1,24 +1,22 @@
 package translators;
 
-import de.fuberlin.wiwiss.d2rq.values.Translator;
-import java.lang.String;
+import translators.util.FragmentIdTranslator;
 
 /**
-BBC URI translator
+ * BBC URI translator
+ * 
+ * @author kurtjx
+ * @author zazi
+ * 
  */
-public class BBCTranslator implements Translator {
+public class BBCTranslator extends FragmentIdTranslator
+{
 
-	public BBCTranslator(){
-		
-	}
+	public static final String ORIGINAL_FRAGMENT_ID = "";
+	public static final String LINKED_DATA_FRAGMENT_ID = "#artist";
 
-	public String toDBValue(String rdfValue) {
-	    return rdfValue.replaceFirst("#artist",
-					 "");
-	}	
-
-	public String toRDFValue(String dbValue) {
-	    return dbValue + "#artist";
+	public BBCTranslator()
+	{
+		super(ORIGINAL_FRAGMENT_ID, LINKED_DATA_FRAGMENT_ID);
 	}
 }
-

@@ -1,41 +1,19 @@
 package translators;
 
-import de.fuberlin.wiwiss.d2rq.values.Translator;
-import java.lang.String;
-
-import translators.util.Utils;
+import translators.util.BaseUriTranslator;
 
 /**
  * @author kurtjx
  * @author zazi
  * 
  */
-public class DBPediaTranslator implements Translator
+public class DBPediaTranslator extends BaseUriTranslator
 {
+	public static final String ORIGINAL_BASE_URI = "http://wikipedia.org/wiki/";
+	public static final String LINKED_DATA_BASE_URI = "http://dbpedia.org/resource/";
 
 	public DBPediaTranslator()
 	{
-
-	}
-
-	public String toDBValue(String rdfValue)
-	{
-		return rdfValue.replaceFirst("http://dbpedia.org/resource/",
-				"http://wikipedia.org/wiki/");
-	}
-
-	public String toRDFValue(String dbValue)
-	{
-		if (Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/") != null)
-		{
-			return Utils.cleanUpBaseURI(dbValue, "http://wikipedia.org/wiki/")
-					.replaceFirst("http://wikipedia.org/wiki/",
-							"http://dbpedia.org/resource/");
-		}
-		// URI does not belong to this information service
-		else
-		{
-			return null;
-		}
+		super(ORIGINAL_BASE_URI, LINKED_DATA_BASE_URI);
 	}
 }

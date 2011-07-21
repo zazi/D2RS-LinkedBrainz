@@ -2,14 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>linkedbrainz</groupId>
+  <groupId>de.fuberlin.wiwiss</groupId>
   <artifactId>d2rs</artifactId>
-  <version>0.7-LinkedBrainz</version>
+  <name>d2rs</name>
+  <version>0.7-maven</version>
   <packaging>jar</packaging>
 
-  <name>D2RS</name>
-  <description>The D2R server incl. LinkedBrainz translators and some edits (e.g. uuid handling)</description>
-  <url>http://linkedbrainz.c4dmpresents.org/</url>
+  <description>The D2R server incl. some edits as maven project. See also http://github.com/cygri/d2rq</description>
+  <url>http://d2rq.org/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -331,6 +331,13 @@
     	<groupId>org.apache.velocity</groupId>
     	<artifactId>velocity</artifactId>
     	<version>1.5</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>de.fuberlin.wiwiss</groupId>
+    	<artifactId>d2rq</artifactId>
+    	<version>0.7-maven</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
